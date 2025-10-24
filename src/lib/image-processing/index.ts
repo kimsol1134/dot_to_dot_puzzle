@@ -46,8 +46,9 @@ export async function processImageToPuzzle(
   // 2. Draw to OffscreenCanvas
   onProgress?.(20, '이미지 준비 중...');
 
-  // Size limit for performance (max 1000px on longest side)
-  const maxSize = 1000;
+  // Size limit for performance and memory (max 600px on longest side)
+  // Reduced from 1000px to prevent OOM errors in contour extraction
+  const maxSize = 400;
   const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
 
   const canvas = new OffscreenCanvas(

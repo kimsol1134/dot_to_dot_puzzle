@@ -27,7 +27,7 @@ export async function processInMainThread(
   // 2. Use document.createElement('canvas') for DOM environment
   onProgress?.(20, '이미지 준비 중...');
   const canvas = document.createElement('canvas');
-  const maxSize = 1000;
+  const maxSize = 400;
   const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
 
   canvas.width = Math.floor(img.width * scale);
